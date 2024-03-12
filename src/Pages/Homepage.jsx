@@ -1,12 +1,16 @@
-import React from 'react';
+import React from 'react'
+import Popular from '../Component/Popular'
+import TopRated from '../Component/TopRated'
+import Footer from '../Component/Footer'
 
-
-export default function Homepage() {
+function Homepage() {
   return (
     <>
-    
-    <div>Homepage</div>
+    <Popular/>
+    <TopRated/>
+    <Footer/>
     </>
-
   )
 }
+
+export default Homepage
