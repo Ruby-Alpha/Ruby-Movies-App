@@ -1,7 +1,5 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Homepage from "./Pages/Homepage"
-import AllMoviesPage from "./Pages/AllMoviesPage"
 import './App.css';
 import PopularPage from './Pages/PopularPage';
 import Homepage from './Pages/Homepage';
