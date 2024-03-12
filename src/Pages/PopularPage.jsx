@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Popular from '../Component/Popular';
 
 
 export default function PopularPage() {
