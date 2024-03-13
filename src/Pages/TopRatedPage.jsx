@@ -8,7 +8,7 @@ export default function TopRatedPage() {
     async function TopRatedMovies(){
         const response = await fetch (url, {
             headers: {
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjBmZTVmODFhNjRhNjg3YzQ5ZWQ0MDlkNjc2Mjg0OCIsInN1YiI6IjY1ZWVlNzRhMmIxMTNkMDE3ZGY5NjU0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T9GmVfISLcA2ZAkPPPHXS8eXzFzeAeEYSkGZ7C2zzX4',
+                Authorization: process.env.MOVIE_SEARCH_APP_API,
                 accept: 'application/json'
     }})
     const data= await response.json()
@@ -24,13 +24,17 @@ export default function TopRatedPage() {
        const websiteurl = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2';
   return (
     <>
-    <p>Top-Rated Movies</p>
-    <div className='outer-div'>
+    <div className='flex justify-center items-center  m-auto  '>
+    <p className='bg-black text-white p-8 py-2 mt-4'>Top-Rated Movies</p>
+    </div>
+    
+    <div className= "bg-#1e293b mb-4  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-6">
         {topRated.results && topRated.results.map((topRated) => (
-            <div className='innerdiv'>
+            <div className=''>
             <img src={`${websiteurl}${topRated.poster_path}`} alt="" />
             
-            <h2>{topRated.title}</h2>
+            <h2 className="w-full text-white text-2xl font-bold underline mt-6 mb-4 ">{topRated.name
+            }</h2>
             </div>
         ))}
     </div>
