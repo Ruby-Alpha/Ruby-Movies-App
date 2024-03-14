@@ -29,7 +29,7 @@ const [fetchPopular, setFetchPopular] = useState ({})
   return (
 
     <>
-    ''
+    
     <div className="mx-auto w-[98%] bg-sky-800
     ">
         <h1 className="bg-sky-800 w-full text-white text-3xl font-bold underline ">POPULAR</h1>
