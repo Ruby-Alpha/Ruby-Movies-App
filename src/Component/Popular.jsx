@@ -42,11 +42,13 @@ const [fetchPopular, setFetchPopular] = useState ({})
             fetchPopular.results.slice(0, 5).map((popular) => (
               <div>
                 <div>
+                  <Link>
                   <img
                     src={`${websiteURL}${popular.poster_path}`}
                     alt=""
                     className="w-full"
                   />
+                  </Link>
                 </div>
                 <div className="text-2xl font-bold ">{popular.title} </div>
               </div>
