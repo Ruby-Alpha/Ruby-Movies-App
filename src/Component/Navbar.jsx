@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Popular", href: "/popular", current: false },
-  { name: "Toprated", href: "/toprated", current: false },
+  { name: "Toprated", href: "/top-rated", current: false },
   { name: "Calendar", href: "#", current: false },
 ];
 
@@ -56,7 +56,7 @@ export default function Navbar() {
                       Popular
                     </Link>
                     <Link
-                      to={"/toprated"}
+                      to={"/top-rated"}
                       className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                     >
                       Top Rated
