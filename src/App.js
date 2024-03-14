@@ -3,10 +3,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import PopularPage from './Pages/PopularPage';
 import Homepage from './Pages/Homepage';
-import AllMoviesPage from './Pages/AllMoviesPage';
 import TopRatedPage from './Pages/TopRatedPage';
 import SearchPage from './Pages/SearchPage';
 import Navbar from './Component/Navbar';
+import MovieDetailsPage from './Pages/Moviedetails';
+
 
 function App() {
   // const apiKey = '6b0fe5f81a64a687c49ed409d6762848'
@@ -18,7 +19,7 @@ function App() {
     <Navbar/>
       <Routes>
         <Route path="/" element={<Homepage/>}>  </Route>
-          <Route path="/movies/:id" element={<moviedetails/>} />
+          <Route path="/movies/:id" element={<MovieDetailsPage />} />
           <Route path="/popular" element={<PopularPage />}></Route>
           <Route path="/search" element={<SearchPage />}></Route>
           {/* <Route path="*" element={<NoPage />} /> */}

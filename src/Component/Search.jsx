@@ -30,7 +30,7 @@ function Search() {
 
   return (
     <>
-      <form onSubmit={handleSearch} className="mx-auto w-3/5 my-5">
+      <form onSubmit={handleSearch} className="mx-auto  w-3/5 my-5">
         <input
           type="text"
           placeholder="Search for movies"
@@ -45,7 +45,8 @@ function Search() {
         /> */}
       </form>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 bg-primary text-white py-4
+      md:grid-cols-3 lg:grid-cols-5 py-4 gap-4">
         {movies.results &&
           (movies.results.length === 0 ? (
             <div>Result not found</div>
@@ -61,7 +62,7 @@ function Search() {
                     />
                   </Link>
                 </div>
-                <div className="text-2xl font-bold ">{movie.title} </div>
+                <div className="text-2xl py-4 font-bold ">{movie.title} </div>
               </div>
             ))
           ))}

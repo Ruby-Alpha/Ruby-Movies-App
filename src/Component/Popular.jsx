@@ -30,10 +30,10 @@ const [fetchPopular, setFetchPopular] = useState ({})
 
     <>
     
-    <div className="mx-auto w-[98%] bg-sky-800
+    <div className="mx-auto w-[98%] bg-primary text-white
     ">
-        <h1 className="bg-sky-800 w-full text-white text-3xl font-bold underline ">POPULAR</h1>
-        <div className='text-white flex justify-end text-2xl'>
+        <h1 className="bg-primary w-full text-white text-3xl font-bold underline ">POPULAR</h1>
+        <div className='text-white flex justify-end text-xl'>
           <Link to={"/popular"}>View all</Link>
           {""}
         </div>
@@ -50,7 +50,7 @@ const [fetchPopular, setFetchPopular] = useState ({})
                   />
                   </Link>
                 </div>
-                <div className="text-2xl font-bold ">{popular.title} </div>
+                <div className="text-2xl font-bold py-4 w-full ">{popular.title} </div>
               </div>
             ))}
         </div>

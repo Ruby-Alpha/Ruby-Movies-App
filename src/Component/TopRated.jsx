@@ -31,9 +31,9 @@ const [fetchTopRated, setFetchTopRated] = useState ({})
 
     <>
     
-    <div className="mx-auto w-[98%] bg-sky-800">
-        <h1 className="w-full bg-sky-50 w-full  text-3xl font-bold underline-">Top Rated</h1>
-        <div>
+    <div className="mx-auto w-[98%] bg-primary text-white">
+        <h1 className="w-full bg-primary w-full  text-3xl font-bold underline-">Top Rated</h1>
+        <div className='text-white flex items-center justify-end text-xl border rounded-3xl w-1/5'>
           <Link to={"/toprated"}>view all</Link>
           {""}
         </div>
@@ -48,7 +48,7 @@ const [fetchTopRated, setFetchTopRated] = useState ({})
                     className="w-full"
                   />
                 </div>
-                <div className="text-2xl font-bold ">{rated.title} </div>
+                <div className="text-2xl font-bold py-4">{rated.title} </div>
               </div>
             ))}
         </div>

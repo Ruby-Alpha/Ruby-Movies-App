@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "Popular", href: "/popular", current: false },
-  { name: "Toprated", href: "/top-rated", current: false },
+  { name: "Popular Movies", href: "/popular", current: false },
+  { name: "Toprated Movies", href: "/top-rated", current: false },
   { name: "Calendar", href: "#", current: false },
 ];
 
@@ -53,13 +53,13 @@ export default function Navbar() {
                       to={"/popular"}
                       className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                     >
-                      Popular
+                      Popular Movies
                     </Link>
                     <Link
                       to={"/top-rated"}
                       className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                     >
-                      Top Rated
+                      Top Rated Movie
                     </Link>
 
                     {/* {navigation.map((item) => (
