@@ -5,6 +5,8 @@ import PopularPage from './Pages/PopularPage';
 import Homepage from './Pages/Homepage';
 import AllMoviesPage from './Pages/AllMoviesPage';
 import TopRatedPage from './Pages/TopRatedPage';
+import SearchPage from './Pages/SearchPage';
+import Navbar from './Component/Navbar';
 
 function App() {
   // const apiKey = '6b0fe5f81a64a687c49ed409d6762848'
@@ -13,11 +15,12 @@ function App() {
     <>
    
     <BrowserRouter>
-    
+    <Navbar/>
       <Routes>
         <Route path="/" element={<Homepage/>}>  </Route>
-          <Route path="/all-movies" element={<AllMoviesPage/>} />
+          <Route path="/movies/:id" element={<moviedetails/>} />
           <Route path="/popular" element={<PopularPage />}></Route>
+          <Route path="/search" element={<SearchPage />}></Route>
           {/* <Route path="*" element={<NoPage />} /> */}
           <Route path="/top-rated" element={<TopRatedPage />}></Route>
       
