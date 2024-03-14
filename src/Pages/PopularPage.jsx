@@ -9,8 +9,10 @@ export default function PopularPage() {
 
 async function popularMovies() {
     const response= await fetch(url, {
+
+
         headers: {
-            Authorization: process.MOVIE_SEARCH_APP_API,
+            Authorization: process.env.MOVIE_SEARCH_APP_API,
             accept: 'application/json'
         }
     })
@@ -26,14 +28,18 @@ useEffect(() => {
 
     const websiteurl = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2';
   return (
-    <>
-    <p>Popular Movies Page</p>
-    <div className='outer-div'>
+    <> 1
+    <div className='flex justify-center items-center  m-auto  ' >
+    <p className='bg-primary text-white p-8 py-2 mt-4' > Popular Movies</p>
+    </div>
+    
+    <div className= "bg-primary mb-2  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-2 ">
         {movies.results && movies.results.map((movie) => (
-            <div className='innerdiv'>
-            <img src={`${websiteurl}${movie.poster_path}`} alt="" />
+            <div className='mb-4 mt-4 hover:opacity-75 transform hover:scale-110 ease-in-out'>
+            <img src={`${websiteurl}${movie.poster_path}`} class="w-46 h-auto" alt="" />
             
-            <h2>{movie.title}</h2>
+            <h2 className="w-full text-white text-2xl font-bold underline mt-6 mb-4 ">{movie.title}</h2>
+            
             </div>
         ))}
     </div>
