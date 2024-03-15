@@ -53,22 +53,28 @@ export default function MovieDetailsPage() {
     fetchReviews();
   }, [params.id]);
 
-  //  className = "bg-primary text-white";
   return (
     <div className="">
-      <div className="relative h-[600px] bg-primary text-white">
+      <div className="relative lg:h-[600px] bg-primary text-white">
         <img
           src={`${imageURLOriginal}${movie.backdrop_path}`}
           alt=""
           className="h-full w-full bg-black opacity-20"
         />
-        <div className="absolute top-0 left-0 right-0 mx-auto w-[90%] py-10">
+        <div className="lg:hidden grid grid-cols-12 absolute top-5 left-0 right-0 mx-auto w-[90%]">
+          <div className="col-span-3">
+            <img src={`${websiteurl}${movie.poster_path}`} alt="" />
+          </div>
+          <div className="col-span-9 hidden"></div>
+        </div>
+
+        <div className="lg:absolute lg:top-0 lg:left-0 lg:right-0 mx-auto w-[90%] py-10">
           <div className="grid grid-cols-10 gap-10">
-            <div className="col-span-2">
+            <div className="hidden lg:block col-span-2">
               <img src={`${websiteurl}${movie.poster_path}`} alt="" />
             </div>
             <div className="col-span-8">
-              <h1 className="font-bold text-2xl lg:text-4xl mb-5">
+              <h1 className="font-extrabold text-2xl lg:text-4xl mb-5 text-center lg:text-left">
                 {movie.title}
               </h1>
 
