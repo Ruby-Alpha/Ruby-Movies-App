@@ -23,7 +23,6 @@ export default function MovieDetailsPage() {
         },
       });
       const data = await response.json();
-      console.log(data);
       setMovie(data);
     } catch (error) {
       console.log(error);
@@ -68,12 +67,23 @@ export default function MovieDetailsPage() {
             <h1 className="font-bold text-2xl lg:text-4xl mb-5">
               {movie.title}
             </h1>
-            {/* <p>{movie.release_date}</p> */}
-            {/* {movie.genres.map((genre) => {
-            <div>{genre.name}</div>;
-          })} */}
-            <div className="lg:w-3/4">
-              <h3 className="lg:text-2xl font-semibold mb-3">Overview</h3>
+
+            {movie.genres && (
+              <div className="lg:w-3/4 mb-5">
+                <h3 className="text-xl font-semibold mb-2">Genres</h3>
+                {movie.genres.map((genre) => (
+                  <div className="font-light" key={genre.id}>
+                    {genre.name}
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className="lg:w-3/4 mb-5">
+              <h3 className="text-xl font-semibold mb-2">Release Date</h3>
+              <p className="font-light">{movie.release_date}</p>
+            </div>
+            <div className="lg:w-3/4 mb-5">
+              <h3 className="text-xl font-semibold mb-2">Overview</h3>
               <p className="font-light">{movie.overview}</p>
             </div>
           </div>
