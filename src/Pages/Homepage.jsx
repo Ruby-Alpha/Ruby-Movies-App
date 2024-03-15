@@ -5,11 +5,11 @@ import Footer from "../Component/Footer";
 
 function Homepage() {
   return (
-    <>
+    <div className="bg-primary text-white min-h-screen">
       <Popular />
       <TopRated />
       <Footer />
-    </>
+    </div>
   );
 }
 

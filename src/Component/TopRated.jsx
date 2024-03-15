@@ -26,16 +26,12 @@ function TopRated() {
     ratedMovie();
   }, []);
 
-  const websiteURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2";
-
   return (
     <>
-      <div className="mx-auto w-[98%] py-10">
+      <div className="mx-auto w-[98%] py-20">
         <div className="text-white flex justify-between text-xl mb-5">
-          <h1 className="bg-primary text-white text-2xl font-bold">
-            Top Rated
-          </h1>
-          {location.pathname === "/" && <Link to={"/toprated"}>View all</Link>}
+          <h1 className="text-white text-2xl font-bold">Top Rated</h1>
+          {location.pathname === "/" && <Link to={"/top-rated"}>View all</Link>}
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {location.pathname === "/" &&
