@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import MovieItem from "./MovieItem";
 
 function Search() {
   const [movies, setMovies] = useState({});
@@ -11,8 +12,9 @@ function Search() {
       `https://api.themoviedb.org/3/search/movie?query=${searchKey}`,
       {
         headers: {
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjBmZTVmODFhNjRhNjg3YzQ5ZWQ0MDlkNjc2Mjg0OCIsInN1YiI6IjY1ZWVlNzRhMmIxMTNkMDE3ZGY5NjU0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T9GmVfISLcA2ZAkPPPHXS8eXzFzeAeEYSkGZ7C2zzX4' ,
-            accept: "application/json"
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjBmZTVmODFhNjRhNjg3YzQ5ZWQ0MDlkNjc2Mjg0OCIsInN1YiI6IjY1ZWVlNzRhMmIxMTNkMDE3ZGY5NjU0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T9GmVfISLcA2ZAkPPPHXS8eXzFzeAeEYSkGZ7C2zzX4",
+          accept: "application/json",
         },
       }
     );
@@ -25,8 +27,6 @@ function Search() {
     console.log(searchKey);
     await searchMovies();
   };
-
-  const websiteURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2";
 
   return (
     <>
@@ -45,26 +45,15 @@ function Search() {
         /> */}
       </form>
 
-      <div className="grid grid-cols-2 bg-primary text-white py-4
-      md:grid-cols-3 lg:grid-cols-5 py-4 gap-4">
+      <div
+        className="grid grid-cols-2 bg-primary text-white py-4
+      md:grid-cols-3 lg:grid-cols-5 py-4 gap-4"
+      >
         {movies.results &&
           (movies.results.length === 0 ? (
             <div>Result not found</div>
           ) : (
-            movies.results.map((movie) => (
-              <div>
-                <div>
-                  <Link to={`/movies/${movie.id}`}>
-                    <img
-                      src={`${websiteURL}${movie.poster_path}`}
-                      alt=""
-                      className="w-full"
-                    />
-                  </Link>
-                </div>
-                <div className="text-2xl py-4 font-bold ">{movie.title} </div>
-              </div>
-            ))
+            movies.results.map((movie) => <MovieItem movie={movie} />)
           ))}
       </div>
     </>
