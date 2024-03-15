@@ -26,7 +26,7 @@ export default function PopularPage() {
 
   //     const websiteurl = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2';
   return (
-    <>
+    <div className="bg-primary text-white min-h-screen">
       {/* <div className='flex justify-center items-center  m-auto  ' >
     <p className='bg-primary text-white p-8 py-2 mt-4' > Popular Movies</p>
     </div>
@@ -42,6 +42,6 @@ export default function PopularPage() {
         ))}
     </div> */}
       <Popular />
-    </>
+    </div>
   );
 }
