@@ -30,7 +30,7 @@ function TopRated() {
     <>
       <div className="mx-auto w-[98%] py-20">
         <div className="text-white flex justify-between text-xl mb-5">
-          <h1 className="text-white text-2xl font-bold">Top Rated</h1>
+          <h1 className="text-white text-2xl font-bold">Top Rated Movies</h1>
           {location.pathname === "/" && <Link to={"/top-rated"}>View all</Link>}
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
