@@ -2,15 +2,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa6";
+import YouTube from "react-youtube";
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState({});
   const [reviews, setReviews] = useState({});
+  const [videos, setVideos] = useState({});
 
   const params = useParams();
   console.log("params", params);
   const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${params.id}`;
   const reviewsUrl = `https://api.themoviedb.org/3/movie/${params.id}/reviews`;
+  const videosUrl = `https://api.themoviedb.org/3/movie/${params.id}/videos`;
   const websiteurl = "https://image.tmdb.org/t/p/w300_and_h450_bestv2";
   const imageURLOriginal = "https://image.tmdb.org/t/p/original";
   const imageURLWidth500 = "https://image.tmdb.org/t/p/w500";
@@ -41,8 +44,25 @@ export default function MovieDetailsPage() {
         },
       });
       const data = await response.json();
-      console.log(data);
+
       setReviews(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function fetchVideos() {
+    try {
+      const response = await fetch(videosUrl, {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjBmZTVmODFhNjRhNjg3YzQ5ZWQ0MDlkNjc2Mjg0OCIsInN1YiI6IjY1ZWVlNzRhMmIxMTNkMDE3ZGY5NjU0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.T9GmVfISLcA2ZAkPPPHXS8eXzFzeAeEYSkGZ7C2zzX4",
+          accept: "application/json",
+        },
+      });
+      const data = await response.json();
+      console.log(data);
+      setVideos(data);
     } catch (error) {
       console.log(error);
     }
@@ -51,6 +71,7 @@ export default function MovieDetailsPage() {
   useEffect(() => {
     fetchMovieDetails();
     fetchReviews();
+    fetchVideos();
   }, [params.id]);
 
   return (
@@ -105,7 +126,7 @@ export default function MovieDetailsPage() {
         <div className="mx-auto w-[90%]">
           {reviews.results && (
             <>
-              <h2 className="font-bold text-2xl mb-3">
+              <h2 className="font-bold text-2xl mb-10">
                 Reviews ({reviews.results.length})
               </h2>
               {reviews.results.map((review) => (
@@ -137,6 +158,21 @@ export default function MovieDetailsPage() {
                   <p>{review.content}</p>
                 </div>
               ))}
+            </>
+          )}
+
+          {videos.results && (
+            <>
+              <h2 className="font-bold text-2xl mb-10">
+                Videos ({videos.results.length})
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-center">
+                {videos.results.slice(0, 4).map((video) => (
+                  <div key={video.key} className="">
+                    <YouTube videoId={video.key}></YouTube>
+                  </div>
+                ))}
+              </div>
             </>
           )}
         </div>
